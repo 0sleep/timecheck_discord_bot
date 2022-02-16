@@ -33,8 +33,6 @@ async def on_message(message):
             for row in rows:
                 await message.channel.send(row)
             await message.channel.send("done")
-            # print times here
-            #maybe extra functions like total lateness or amount of N/A's
         else:
             args = message.content[1:].split(":")
             try:
