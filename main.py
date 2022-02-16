@@ -1,9 +1,11 @@
 import discord
 import datetime
 import sqlite3
+import os
+
 client = discord.Client()
 guildID = 943321200950669374
-sqliteConnection = sqlite3.connect('C:/Users/Dominik/Documents/Programming/Python Stuff/timechecks/times.db')#doesn't exist yet
+sqliteConnection = sqlite3.connect('times.db')#doesn't exist yet
 cursor = sqliteConnection.cursor()
 
 @client.event
@@ -45,4 +47,4 @@ async def on_message(message):
             cursor.execute("""INSERT INTO times VALUES ({}, '{}', '{}') """.format(dto.timestamp(), args[1], args[2]))
             sqliteConnection.commit()
             await message.channel.send("Success maybe idk")
-client.run("OTQyNzYzNzY5NDAxMDY5NTk4.YgpPLg.AjXVEPW-EwoG25-CtYuCFzcxe7s")
+client.run(os.getEnv(bot_token, default=False))
