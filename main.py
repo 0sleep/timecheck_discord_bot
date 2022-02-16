@@ -47,4 +47,4 @@ async def on_message(message):
             cursor.execute("""INSERT INTO times VALUES ({}, '{}', '{}') """.format(dto.timestamp(), args[1], args[2]))
             sqliteConnection.commit()
             await message.channel.send("Success maybe idk")
-client.run(os.getEnv(bot_token, default=False))
+client.run(os.getenv(bot_token, default=False))
